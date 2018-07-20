@@ -14,8 +14,6 @@ import ua.fvadevand.testchat.R;
 
 public class CreateChatFragment extends Fragment {
 
-    private static final String LOG_TAG = CreateChatFragment.class.getSimpleName();
-
     private static final String ARG_HOST_NAME = "HOST_NAME";
 
     private String mHostName;

@@ -3,12 +3,12 @@
     package="ua.fvadevand.testchat">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/talking"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -21,14 +21,15 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ui.message.MessageActivity"
+            android:label="@string/label_message_activity"
+            android:screenOrientation="portrait" />
+
         <service
             android:name=".services.ServerService"
             android:enabled="true"
             android:exported="false" />
-
-        <activity
-            android:name=".ui.message.MessageActivity"
-            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

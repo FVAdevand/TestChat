@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.JoinChatFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
     <EditText
         android:id="@+id/et_host_name"
         android:layout_width="wrap_content"
@@ -34,7 +32,10 @@
         android:id="@+id/tv_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_start_end_message"
+        android:layout_marginStart="@dimen/margin_start_end_message"
         android:text="@string/message_enter_host_ip"
+        android:textSize="@dimen/message_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

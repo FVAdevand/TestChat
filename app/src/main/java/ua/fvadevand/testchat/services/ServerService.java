@@ -5,7 +5,6 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
-import android.util.Log;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -14,8 +13,6 @@ import ua.fvadevand.testchat.Const;
 import ua.fvadevand.testchat.chat.Server;
 
 public class ServerService extends Service implements Server.OnServerStartListener {
-
-    private static final String LOG_TAG = ServerService.class.getSimpleName();
 
     private PendingIntent mPendingIntent;
     private boolean mIsServer;
@@ -76,7 +73,6 @@ public class ServerService extends Service implements Server.OnServerStartListen
     public void onJoinClient(Socket client) {
         mClientSocket = client;
         sendRequestConnectClient();
-        Log.i(LOG_TAG, "onJoinClient: " + Thread.currentThread().getName());
     }
 
     private void sendRequestConnectClient() {
@@ -93,7 +89,6 @@ public class ServerService extends Service implements Server.OnServerStartListen
         if (mIsServer) {
             mServer.close();
         }
-        Log.i(LOG_TAG, "onDestroy: ");
     }
 
     public Socket getSocket() {

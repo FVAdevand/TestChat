@@ -1,7 +1,5 @@
 package ua.fvadevand.testchat.chat;
 
-import android.util.Log;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -12,7 +10,6 @@ import ua.fvadevand.testchat.utilities.CryptUtils;
 
 public class ConnectedClient extends Thread {
 
-    private static final String LOG_TAG = ConnectedClient.class.getSimpleName();
     private final CryptUtils mCryptUtils;
     private Socket mSocket;
     private boolean mIsRunning;
@@ -43,7 +40,6 @@ public class ConnectedClient extends Thread {
                 try {
                     message = mInput.readUTF();
                 } catch (IOException e) {
-                    Log.i(LOG_TAG, "run: " + e);
                     e.printStackTrace();
                 }
 
@@ -52,7 +48,6 @@ public class ConnectedClient extends Thread {
                         continue;
                     }
                     if (mListener != null) {
-                        Log.i(LOG_TAG, "run: " + message);
                         mListener.onReceiveMessage(mCryptUtils.decript(message));
                     }
                 }
@@ -71,8 +66,6 @@ public class ConnectedClient extends Thread {
             return true;
         } else if (message.contains(Const.COMMAND_PUBLIC_KEY)) {
             String publicKey = message.substring(message.indexOf(Const.SEPARATOR) + Const.SEPARATOR.length());
-            Log.i(LOG_TAG, "hasCommand: " + message);
-            Log.i(LOG_TAG, "hasCommand: " + publicKey);
             mCryptUtils.generateSecret(publicKey);
             mIsHasSecret = true;
             return true;

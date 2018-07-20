@@ -1,18 +1,29 @@
 <resources>
     <string name="app_name">Test chat</string>
 
+    <!--MainActivity-->
+    <string name="message_connection_closed">Connection closed</string>
+
+    <!--MessageActivity-->
+    <string name="label_message_activity">Chat is opening</string>
+
     <!--StartFragment-->
     <string name="btn_label_create_chat">Create chat</string>
     <string name="btn_label_join_chat">Join chat</string>
+    <string name="message_wifi_connected">Turn on WiFi for use chat</string>
 
+    <!--messageFragment-->
     <string name="description_action_send_message">action send message</string>
     <string name="description_avatar">Avatar</string>
+
+    <!--CreateChatFragment-->
+    <string name="message_join_chat">Your companion must located in same net</string>
+    <string name="description_ip">Your IP</string>
 
     <!--JoinChatFragment-->
     <string name="error_invalid_host">Invalid host</string>
     <string name="hint_host_ip">Host IP</string>
     <string name="btn_enter_ip">Enter IP</string>
     <string name="message_enter_host_ip">Enter host IP your companion</string>
-
 
 </resources>

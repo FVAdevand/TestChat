@@ -1,7 +1,5 @@
 package ua.fvadevand.testchat.chat;
 
-import android.util.Log;
-
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -9,8 +7,6 @@ import java.net.Socket;
 import ua.fvadevand.testchat.Const;
 
 public class Server extends Thread {
-
-    private static final String LOG_TAG = Server.class.getSimpleName();
 
     private String mHostName;
     private ServerSocket mServerSocket;
@@ -35,7 +31,6 @@ public class Server extends Thread {
 
             }
         } catch (Exception e) {
-            //TODO: разобрать Exception
             e.printStackTrace();
         }
     }
@@ -60,8 +55,6 @@ public class Server extends Thread {
         }
 
         mServerSocket = null;
-
-        Log.i(LOG_TAG, "close: ");
     }
 
     public interface OnServerStartListener {

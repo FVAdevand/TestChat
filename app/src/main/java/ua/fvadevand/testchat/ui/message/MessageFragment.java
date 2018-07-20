@@ -12,7 +12,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,10 +33,8 @@ import ua.fvadevand.testchat.services.ServerService;
  * {@link OnChatCloseListener} interface
  * to handle interaction events.
  */
-public class ServerMessageFragment extends Fragment
+public class MessageFragment extends Fragment
         implements ConnectedClient.OnConnectedClientListener {
-
-    private static final String LOG_TAG = ServerMessageFragment.class.getSimpleName();
 
     private ConnectedClient mClient;
     private Handler mHandler;
@@ -48,7 +45,7 @@ public class ServerMessageFragment extends Fragment
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             ServerService service1 = ((ServerService.ServiceBinder) service).getService();
-            mClient = new ConnectedClient(service1.getSocket(), ServerMessageFragment.this);
+            mClient = new ConnectedClient(service1.getSocket(), MessageFragment.this);
             mClient.start();
         }
 
@@ -61,7 +58,7 @@ public class ServerMessageFragment extends Fragment
     private RecyclerView mMessageListView;
     private EditText mMessageTextView;
 
-    public ServerMessageFragment() {
+    public MessageFragment() {
     }
 
     @Override
@@ -115,7 +112,6 @@ public class ServerMessageFragment extends Fragment
         if (getActivity() != null) {
             mClient.close();
             getActivity().unbindService(mConnection);
-            Log.i(LOG_TAG, "onDetach: unBindService");
         }
     }
 

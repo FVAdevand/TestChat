@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import ua.fvadevand.testchat.R;
 
@@ -21,6 +22,9 @@ import ua.fvadevand.testchat.R;
 public class StartFragment extends Fragment {
 
     private OnStartInteractionListener mListener;
+    private Button mCreateChatBtn;
+    private Button mJoinChatBtn;
+    private TextView mDescriptionView;
 
     public StartFragment() {
     }
@@ -36,8 +40,8 @@ public class StartFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Button createChatBtn = view.findViewById(R.id.btn_create_chat);
-        createChatBtn.setOnClickListener(new View.OnClickListener() {
+        mCreateChatBtn = view.findViewById(R.id.btn_create_chat);
+        mCreateChatBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mListener != null) {
@@ -46,8 +50,8 @@ public class StartFragment extends Fragment {
             }
         });
 
-        Button joinChatBtn = view.findViewById(R.id.btn_join_chat);
-        joinChatBtn.setOnClickListener(new View.OnClickListener() {
+        mJoinChatBtn = view.findViewById(R.id.btn_join_chat);
+        mJoinChatBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mListener != null) {
@@ -55,6 +59,9 @@ public class StartFragment extends Fragment {
                 }
             }
         });
+
+        mDescriptionView = view.findViewById(R.id.tv_wifi_message);
+        mDescriptionView.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -72,6 +79,18 @@ public class StartFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    public void displayBtns(boolean isDisplay) {
+        if (isDisplay) {
+            mCreateChatBtn.setVisibility(View.VISIBLE);
+            mJoinChatBtn.setVisibility(View.VISIBLE);
+            mDescriptionView.setVisibility(View.INVISIBLE);
+        } else {
+            mCreateChatBtn.setVisibility(View.INVISIBLE);
+            mJoinChatBtn.setVisibility(View.INVISIBLE);
+            mDescriptionView.setVisibility(View.VISIBLE);
+        }
     }
 
     public interface OnStartInteractionListener {

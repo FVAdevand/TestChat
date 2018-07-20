@@ -7,4 +7,6 @@
     <dimen name="margin_start_end_message">16dp</dimen>
     <dimen name="margin_top_bottom_message">8dp</dimen>
     <dimen name="message_text_size">16sp</dimen>
+    <dimen name="margin_top_elements">32dp</dimen>
+    <dimen name="size_description_text">20sp</dimen>
 </resources>

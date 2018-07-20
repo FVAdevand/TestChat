@@ -1,7 +1,6 @@
 package ua.fvadevand.testchat.utilities;
 
 import android.util.Base64;
-import android.util.Log;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
@@ -29,8 +28,6 @@ import javax.crypto.spec.SecretKeySpec;
 
 public final class CryptUtils {
 
-    private static final String LOG_TAG = CryptUtils.class.getSimpleName();
-
     private final static char[] HEX_ARRAY = "0123456789ABCDEF".toCharArray();
     private String userPkStr;
     private KeyPair mUserKeyPair;
@@ -41,7 +38,6 @@ public final class CryptUtils {
     }
 
     public String getUserPkStr() {
-        Log.i(LOG_TAG, "getUserPkStr: " + userPkStr);
         return userPkStr;
     }
 
@@ -55,11 +51,9 @@ public final class CryptUtils {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-        Log.i(LOG_TAG, "createKeyPair: ");
     }
 
     public final void generateSecret(String companionPkStr) {
-        Log.i(LOG_TAG, "generateSecret: " + companionPkStr);
         try {
             KeyFactory kf = KeyFactory.getInstance("EC");
             byte[] companionPk = fromHex(companionPkStr);

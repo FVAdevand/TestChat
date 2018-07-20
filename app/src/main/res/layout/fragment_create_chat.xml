@@ -4,11 +4,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_marginEnd="@dimen/margin_start_end_message"
+    android:layout_marginStart="@dimen/margin_start_end_message"
     tools:context=".ui.main.CreateChatFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:gravity="center"
+        android:text="@string/description_ip"
+        android:textSize="@dimen/message_text_size" />
 
     <TextView
         android:id="@+id/tv_host"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_start_end_message"
+        android:layout_marginStart="@dimen/margin_start_end_message"
+        android:gravity="center"
+        android:textColor="@android:color/primary_text_light"
+        android:textSize="@dimen/size_description_text"
+        tools:text="128:458:4:45" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:gravity="center"
+        android:text="@string/message_join_chat"
+        android:textSize="@dimen/message_text_size" />
 
 </LinearLayout>

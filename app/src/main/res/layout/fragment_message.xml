@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.message.ServerMessageFragment">
+    tools:context=".ui.message.MessageFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/message_list"
@@ -36,6 +36,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:inputType="text"
+                android:layout_marginStart="@dimen/margin_start_end_message"
                 tools:ignore="LabelFor" />
 
             <ImageButton

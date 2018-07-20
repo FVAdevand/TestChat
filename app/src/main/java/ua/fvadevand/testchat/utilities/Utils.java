@@ -1,5 +1,10 @@
 package ua.fvadevand.testchat.utilities;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkInfo;
+
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
@@ -50,5 +55,21 @@ public class Utils {
         } catch (PatternSyntaxException ex) {
             return false;
         }
+    }
+
+    public static boolean isWifiConnected(Context context) {
+        ConnectivityManager connectivityManager =
+                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager != null) {
+            for (Network network : connectivityManager.getAllNetworks()) {
+                NetworkInfo networkInfo = connectivityManager.getNetworkInfo(network);
+                if (networkInfo != null
+                        && networkInfo.getType() == ConnectivityManager.TYPE_WIFI
+                        && networkInfo.isConnected()) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

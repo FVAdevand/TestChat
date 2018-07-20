@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Чат</string>
+    <string name="message_connection_closed">Соединение закрыто</string>
+    <string name="label_message_activity">Чат создан</string>
+    <string name="btn_label_create_chat">Создать чат</string>
+    <string name="btn_label_join_chat">Войти в чат</string>
+    <string name="message_wifi_connected">Включите WiFi для использования приложением</string>
+    <string name="description_action_send_message">Отправить сообщение</string>
+    <string name="description_avatar">Аватар пользователя чата</string>
+    <string name="message_join_chat">Ваш собеседник должен находиться в той же сети</string>
+    <string name="description_ip">Ваш IP адрес</string>
+    <string name="error_invalid_host">Неверный IP адрес</string>
+    <string name="hint_host_ip">IP адрес</string>
+    <string name="btn_enter_ip">Ввод IP</string>
+    <string name="message_enter_host_ip">Введите IP адрес вашего собеседника</string>
+</resources>

@@ -29,7 +29,6 @@ public class JoinChatFragment extends Fragment {
     public JoinChatFragment() {
     }
 
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
