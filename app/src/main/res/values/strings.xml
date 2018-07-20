@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Test chat</string>
+
+    <!--StartFragment-->
+    <string name="btn_label_create_chat">Create chat</string>
+    <string name="btn_label_join_chat">Join chat</string>
+
+    <string name="description_action_send_message">action send message</string>
+    <string name="description_avatar">Avatar</string>
+
+    <!--JoinChatFragment-->
+    <string name="error_invalid_host">Invalid host</string>
+    <string name="hint_host_ip">Host IP</string>
+    <string name="btn_enter_ip">Enter IP</string>
+    <string name="message_enter_host_ip">Enter host IP your companion</string>
+
+
+</resources>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.message.ServerMessageFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/message_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/message_sender" />
+
+    <android.support.v7.widget.CardView
+
+        android:id="@+id/message_sender"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/message_sender_height"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin_top_bottom_message"
+        android:layout_marginEnd="@dimen/margin_start_end_message"
+        android:layout_marginStart="@dimen/margin_start_end_message"
+        android:layout_marginTop="@dimen/margin_top_bottom_message"
+        app:cardCornerRadius="@dimen/message_corner_radius">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBackgroundMessageField"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_message"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:inputType="text"
+                tools:ignore="LabelFor" />
+
+            <ImageButton
+                android:id="@+id/ibtn_send_message"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/description_action_send_message"
+                android:paddingEnd="@dimen/ibtn_padding"
+                android:paddingStart="@dimen/ibtn_padding"
+                android:src="@drawable/ic_send_black_24dp" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
