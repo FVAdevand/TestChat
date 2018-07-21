@@ -6,5 +6,6 @@
     <color name="colorBackgroundMessageUser">#81D4FA</color>
     <color name="colorBackgroundMessageFriend">#E6EE9C</color>
     <color name="colorBackgroundMessageField">#EEEEEE</color>
+    <color name="colorBackgroundBtn">#80DEEA</color>
 
 </resources>
