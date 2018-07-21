@@ -1,16 +1,12 @@
 package ua.fvadevand.testchat.utilities;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkInfo;
+import android.net.wifi.WifiManager;
 
-import java.net.Inet4Address;
-import java.net.Inet6Address;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.util.Enumeration;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -20,28 +16,14 @@ public class Utils {
     private Utils() {
     }
 
-    public static String getLocalIpAddress() throws SocketException {
-        String resultIpv6 = "";
-        String resultIpv4 = "";
-
-        for (Enumeration en = NetworkInterface.getNetworkInterfaces();
-             en.hasMoreElements(); ) {
-
-            NetworkInterface intf = (NetworkInterface) en.nextElement();
-            for (Enumeration enumIpAddr = intf.getInetAddresses();
-                 enumIpAddr.hasMoreElements(); ) {
-
-                InetAddress inetAddress = (InetAddress) enumIpAddr.nextElement();
-                if (!inetAddress.isLoopbackAddress()) {
-                    if (inetAddress instanceof Inet4Address) {
-                        resultIpv4 = inetAddress.getHostAddress();
-                    } else if (inetAddress instanceof Inet6Address) {
-                        resultIpv6 = inetAddress.getHostAddress();
-                    }
-                }
-            }
+    @SuppressLint("DefaultLocale")
+    public static String getLocalIpAddress(Context context) {
+        WifiManager wm = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        if (wm != null) {
+            int ipAddress = wm.getConnectionInfo().getIpAddress();
+            return String.format("%d.%d.%d.%d", (ipAddress & 0xff), (ipAddress >> 8 & 0xff), (ipAddress >> 16 & 0xff), (ipAddress >> 24 & 0xff));
         }
-        return ((resultIpv4.length() > 0) ? resultIpv4 : resultIpv6);
+        return "0.0.0.0";
     }
 
     public static boolean isValidIp(String ip) {
@@ -59,7 +41,7 @@ public class Utils {
 
     public static boolean isWifiConnected(Context context) {
         ConnectivityManager connectivityManager =
-                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                (ConnectivityManager) context.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         if (connectivityManager != null) {
             for (Network network : connectivityManager.getAllNetworks()) {
                 NetworkInfo networkInfo = connectivityManager.getNetworkInfo(network);

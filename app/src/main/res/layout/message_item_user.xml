@@ -29,6 +29,7 @@
             android:id="@+id/tv_message"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/margin_start_end_message"
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:textColor="@android:color/primary_text_light"

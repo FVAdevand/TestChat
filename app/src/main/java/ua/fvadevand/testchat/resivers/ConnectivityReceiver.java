@@ -17,7 +17,7 @@ public class ConnectivityReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (mListener != null) {
-            mListener.onConnectedWIFI(Utils.isWifiConnected(context.getApplicationContext()));
+            mListener.onConnectedWIFI(Utils.isWifiConnected(context));
         }
     }
 

@@ -7,8 +7,6 @@ import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import java.net.SocketException;
-
 import ua.fvadevand.testchat.Const;
 import ua.fvadevand.testchat.R;
 import ua.fvadevand.testchat.resivers.ConnectivityReceiver;
@@ -47,12 +45,8 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onCreateChat() {
-        try {
-            String hostName = Utils.getLocalIpAddress();
+        String hostName = Utils.getLocalIpAddress(this);
             startChatService(true, hostName);
-        } catch (SocketException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override

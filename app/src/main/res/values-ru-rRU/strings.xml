@@ -5,7 +5,7 @@
     <string name="label_message_activity">Чат создан</string>
     <string name="btn_label_create_chat">Создать чат</string>
     <string name="btn_label_join_chat">Войти в чат</string>
-    <string name="message_wifi_connected">Включите WiFi для использования приложением</string>
+    <string name="message_wifi_connected">Включите WiFi для пользования приложением</string>
     <string name="description_action_send_message">Отправить сообщение</string>
     <string name="description_avatar">Аватар пользователя чата</string>
     <string name="message_join_chat">Ваш собеседник должен находиться в той же сети</string>
